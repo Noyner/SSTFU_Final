@@ -25,3 +25,8 @@ Visual Studio \ Rider - для развёртывания решения с ве
 Python 3.7 - для запуска распознавания нейронными сетями
 Telegram - для доступа к чат-боту
 
+Образец скрипта для запуска нейронной сети можно найти в: Final 2021\SSTFU LOD 2021\GarbageDetectionService\NN: 
+
+Образец команды:
+python detect.py --weights runs\train\exp\weights/best.pt --img 320 --conf 0.4 --save-txt --source [PATH_TO_IMAGE] 
+
