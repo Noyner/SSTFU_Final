@@ -1,0 +1,139 @@
+﻿@model System.Collections.Generic.List<string[]>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Таблицы</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="~/css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="~/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" asp-controller="Home" asp-action="Index">Око Татарстана</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+           
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Камеры</div>
+                            <a class="nav-link" asp-controller="Statistics" asp-action="Dashboard">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Статистика
+                            </a>
+                            <a class="nav-link" asp-controller="Statistics" asp-action="Tables">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Таблицы
+                            </a>
+							<hr>
+							<a class="nav-link" asp-controller="Home" asp-action="Help">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Задать вопрос
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Прототип <b> by SSTFU 2021</b></div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Таблицы</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a asp-controller="Statistics" asp-action="Dashboard">Статистика</a></li>
+                            <li class="breadcrumb-item active">Таблицы</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                Собранные данные по заполненности мусорных баков с камер видеонаблюдения в республике Татарстан
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Данные
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Адрес</th>
+                                            <th>Район</th>
+                                            <th>Статус</th>
+											<th>Дата</th>
+											<th>Время</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Адрес</th>
+                                            <th>Район</th>
+                                            <th>Статус</th>
+											<th>Дата</th>
+											<th>Время</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                       @foreach (var record in Model)
+                                       {
+                                           var tclass = "table-success";
+                                           if (record[2] == "Заполнен")
+                                           {
+                                               tclass = "table-danger";
+                                           }
+                                           if (record[5] == "1")
+                                               tclass = "table-warning";
+                                           <tr class="@tclass">
+                                               <td>@record[0]</td>
+                                               <td>@record[1]</td>
+                                               <td>@record[2]</td>
+                                               <td>@record[3]</td>
+                                               <td>@record[4]</td>
+                                           </tr>
+                                       }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; SST(F)U Leader Of Digital 2021</div>
+                            
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="~/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="~/js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+

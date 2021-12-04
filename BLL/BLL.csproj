@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bll.Interfaces\Bll.Interfaces.csproj" />
+    <ProjectReference Include="..\Dal.Interfaces\Dal.Interfaces.csproj" />
+    <ProjectReference Include="..\DAL\DAO.DB.csproj" />
+    <ProjectReference Include="..\DAO.Storage\DAO.Storage.csproj" />
+    <ProjectReference Include="..\DTO\DTO.csproj" />
+  </ItemGroup>
+
+</Project>

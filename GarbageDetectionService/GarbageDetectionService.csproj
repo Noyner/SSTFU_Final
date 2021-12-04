@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Technical</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DTO\DTO.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DynamicLanguageRuntime" Version="1.3.1" />
+      <PackageReference Include="IronPython" Version="3.4.0-alpha1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="JSONs\data.txt" />
+      <EmbeddedResource Include="JSONs\data.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="TDAO.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="NN\" />
+    </ItemGroup>
+
+</Project>
