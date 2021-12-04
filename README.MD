@@ -29,7 +29,7 @@ Telegram - для доступа к чат-боту
 Образец скрипта для запуска нейронной сети по парковочным местам можно найти в: Final 2021\SSTFU LOD 2021/ParkingNeuro
 
 Образец команды для мусорных баков:
-python detect.py --weights runs\train\exp\weights/best.pt --img 320 --conf 0.4 --save-txt --source [PATH_TO_IMAGE] 
+python detect.py --weights runs/train/exp7/weights/best.pt --img 320 --conf 0.4 --save-txt --source 23-11-2021_06-11-27_PM_png.rf.520a23306b1709cd34b1256959fc32b8.jpg
 
 Образец команды мест для парковки:
 python detect.py --weights runs\train\exp\weights/best.pt --img 320 --conf 0.4 --save-txt --source example.jpg 
