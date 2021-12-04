@@ -30,3 +30,4 @@ Telegram - для доступа к чат-боту
 Образец команды:
 python detect.py --weights runs\train\exp\weights/best.pt --img 320 --conf 0.4 --save-txt --source [PATH_TO_IMAGE] 
 
+Ссылка на Telegram бота: @parking_kazan_oko_tatarstana_bot
